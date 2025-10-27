@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthContext";
 import ThemeToggle from "./ThemeToggle";
+import { HiMenu, HiX } from "react-icons/hi";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext); // এখানে context থেকে আনবে (demo হিসেবে {})
+  const { user, logOut } = useContext(AuthContext);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleLogout = () => {
     logOut()
@@ -13,50 +15,81 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-md px-4 fixed top-0 left-0 w-full z-50 ">
-      {/* Left - Logo */}
-      <div className="navbar-start">
-        <Link to="/" className="text-xl font-bold">HobbyHub</Link>
-      </div>
+    <nav className="bg-base-100 dark:bg-gray-900 shadow-md fixed top-0 left-0 w-full z-50 transition-colors duration-300">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16 items-center">
 
-      {/* Center - Nav Links */}
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-lg gap-4">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/allGroups">All Groups</Link></li>
-          {user && (
-            <>
-              <li><Link to="/create-group">Create Group</Link></li>
-              <li><Link to="/my-groups">My Groups</Link></li>
-            </>
-          )}
-        </ul>
-      </div>
-
-      
-
-      {/* Right - User / Login */}
-      <div className="navbar-end ">
-
-        
-        
-        {user ? (
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-left" data-tip={user?.displayName}>
-              <div className="w-10 rounded-full">
-                <img src={user?.photoURL} alt="user" />
-              </div>
-            </label>
-            <ul tabIndex={0} className="menu dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-              <li className="px-3 py-2 text-center font-semibold">{user?.displayName}</li>
-              <li><button onClick={handleLogout}>Logout</button></li>
-            </ul>
+          {/* Left - Logo */}
+          <div className="flex-shrink-0">
+            <Link
+              to="/"
+              className="text-xl font-bold text-gray-900 dark:text-white transition-colors duration-300"
+            >
+              HobbyHub
+            </Link>
           </div>
-        ) : (
-          <Link to="/register" className="btn">Register/LogIn</Link>
-        )}
+
+          {/* Center - Nav Links (desktop) */}
+          <div className="hidden lg:flex space-x-6 text-lg">
+            <Link to="/" className="hover:text-primary dark:hover:text-blue-400 transition-colors">Home</Link>
+            <Link to="/allGroups" className="hover:text-primary dark:hover:text-blue-400 transition-colors">All Groups</Link>
+            {user && (
+              <>
+                <Link to="/create-group" className="hover:text-primary dark:hover:text-blue-400 transition-colors">Create Group</Link>
+                <Link to="/my-groups" className="hover:text-primary dark:hover:text-blue-400 transition-colors">My Groups</Link>
+              </>
+            )}
+          </div>
+
+          {/* Right - User / Mobile menu */}
+          <div className="flex items-center gap-3">
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
+            {/* Desktop User */}
+            {user ? (
+              <div className="hidden lg:flex items-center gap-3">
+                <div className="tooltip tooltip-left" data-tip={user.displayName}>
+                  <img src={user.photoURL} alt="user" className="w-10 h-10 rounded-full cursor-pointer" />
+                </div>
+                <button onClick={handleLogout} className="btn btn-sm bg-blue-500 text-white dark:bg-blue-600 dark:text-white hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors">
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Link to="/register" className="btn hidden lg:inline bg-blue-500 text-white dark:bg-blue-600 dark:text-white hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors">Register/LogIn</Link>
+            )}
+
+            {/* Mobile Hamburger */}
+            <div className="lg:hidden">
+              <button onClick={() => setIsOpen(!isOpen)} className="text-2xl justify-center items-center text-blue-900 dark:text-white transition-colors">
+                {isOpen ? <HiX /> : <HiMenu />}
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="lg:hidden bg-base-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-colors">
+          <div className="flex flex-col px-4 py-3 space-y-2">
+            <Link to="/" onClick={() => setIsOpen(false)} className="hover:text-primary dark:hover:text-blue-400 transition-colors">Home</Link>
+            <Link to="/allGroups" onClick={() => setIsOpen(false)} className="hover:text-primary dark:hover:text-blue-400 transition-colors">All Groups</Link>
+            {user && (
+              <>
+                <Link to="/create-group" onClick={() => setIsOpen(false)} className="hover:text-primary dark:hover:text-blue-400 transition-colors">Create Group</Link>
+                <Link to="/my-groups" onClick={() => setIsOpen(false)} className="hover:text-primary dark:hover:text-blue-400 transition-colors">My Groups</Link>
+              </>
+            )}
+            {!user && <Link to="/register" onClick={() => setIsOpen(false)} className="btn w-full bg-green-500 text-white dark:bg-green-600 dark:text-white hover:bg-green-600 dark:hover:bg-green-700 transition-colors">Register/LogIn</Link>}
+            {user && (
+              <button onClick={() => { handleLogout(); setIsOpen(false); }} className="btn w-full bg-green-500 text-white dark:bg-green-600 dark:text-white hover:bg-green-600 dark:hover:bg-green-700 transition-colors">Logout</button>
+            )}
+          </div>
+        </div>
+      )}
+    </nav>
   );
 };
 

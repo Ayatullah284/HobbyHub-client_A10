@@ -1,4 +1,3 @@
-// src/pages/CreateGroup.jsx
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Auth/AuthContext";
 import axios from "axios";
@@ -19,8 +18,6 @@ const CreateGroup = () => {
     startDate: "",
     imageURL: "",
   });
-
-  // https://i.ibb.co.com/cXDV9mm4/study.jpg
 
   const categories = ["Drawing", "Gaming", "Cooking", "Music", "Sports", "Photography", "Food", "Education"];
 
@@ -45,7 +42,6 @@ const CreateGroup = () => {
 
       if (res.data.insertedId) {
         Swal.fire({
-          // position: "top-end",
           icon: "success",
           title: "✅ Group Created Successfully!",
           showConfirmButton: false,
@@ -60,8 +56,11 @@ const CreateGroup = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto my-10 p-6 bg-white rounded-xl shadow-md">
-      <h2 className="text-2xl font-bold mb-6">Create a New Hobby Group</h2>
+    <div className="max-w-3xl mx-auto my-10 p-4 sm:p-6 bg-white rounded-xl shadow-md">
+      <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center sm:text-left">
+        Create a New Hobby Group
+      </h2>
+
       <form onSubmit={handleSubmit} className="space-y-4">
 
         <div>
@@ -117,28 +116,30 @@ const CreateGroup = () => {
           />
         </div>
 
-        <div>
-          <label className="block mb-1 font-medium">Max Members</label>
-          <input
-            type="number"
-            name="maxMembers"
-            value={formData.maxMembers}
-            onChange={handleChange}
-            required
-            className="input input-bordered w-full"
-          />
-        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block mb-1 font-medium">Max Members</label>
+            <input
+              type="number"
+              name="maxMembers"
+              value={formData.maxMembers}
+              onChange={handleChange}
+              required
+              className="input input-bordered w-full"
+            />
+          </div>
 
-        <div>
-          <label className="block mb-1 font-medium">Start Date</label>
-          <input
-            type="date"
-            name="startDate"
-            value={formData.startDate}
-            onChange={handleChange}
-            required
-            className="input input-bordered w-full"
-          />
+          <div>
+            <label className="block mb-1 font-medium">Start Date</label>
+            <input
+              type="date"
+              name="startDate"
+              value={formData.startDate}
+              onChange={handleChange}
+              required
+              className="input input-bordered w-full"
+            />
+          </div>
         </div>
 
         <div>
@@ -152,24 +153,26 @@ const CreateGroup = () => {
           />
         </div>
 
-        <div>
-          <label className="block mb-1 font-medium">User Name</label>
-          <input
-            type="text"
-            value={user.displayName || ""}
-            readOnly
-            className="input input-bordered w-full bg-gray-100"
-          />
-        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block mb-1 font-medium">User Name</label>
+            <input
+              type="text"
+              value={user.displayName || ""}
+              readOnly
+              className="input input-bordered w-full bg-gray-100"
+            />
+          </div>
 
-        <div>
-          <label className="block mb-1 font-medium">User Email</label>
-          <input
-            type="email"
-            value={user.email || ""}
-            readOnly
-            className="input input-bordered w-full bg-gray-100"
-          />
+          <div>
+            <label className="block mb-1 font-medium">User Email</label>
+            <input
+              type="email"
+              value={user.email || ""}
+              readOnly
+              className="input input-bordered w-full bg-gray-100"
+            />
+          </div>
         </div>
 
         <button type="submit" className="btn btn-primary w-full mt-4">

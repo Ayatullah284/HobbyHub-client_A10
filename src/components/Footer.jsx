@@ -1,11 +1,11 @@
-{/* Footer.jsx */}
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="bg-base-200 mt-10">
-      <div className="grid grid-cols-4 footer p-10 text-base-content max-w-6xl mx-auto">
+      <div className="footer p-10 text-base-content max-w-6xl mx-auto 
+                      grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
         <aside>
           <div className="text-3xl font-bold">HobbyHub</div>
