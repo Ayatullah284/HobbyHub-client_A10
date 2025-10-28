@@ -31,7 +31,7 @@ const AllGroups = () => {
                 <img
                   src={group.imageURL}
                   alt={group.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover "
                 />
               </figure>
               <div className="card-body">
