@@ -59,7 +59,7 @@ const MyGroups = () => {
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full border border-gray-300 text-sm sm:text-base">
-            <thead className="bg-gray-200">
+            <thead className="bg-gray-200 ">
               <tr>
                 <th className="border px-2 sm:px-4 py-2 text-left ">Group Name</th>
                 <th className="border px-2 sm:px-4 py-2 text-left">Category</th>
