@@ -55,7 +55,7 @@ const MyGroups = () => {
       <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-center sm:text-left">My Groups</h2>
 
       {groups.length === 0 ? (
-        <p className="text-center text-sm sm:text-base mt-6">আপনি এখনও কোনো গ্রুপ তৈরি করেননি।</p>
+        <p className="text-center text-sm sm:text-base mt-6 ">আপনি এখনও কোনো গ্রুপ তৈরি করেননি।</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full border border-gray-300 text-sm sm:text-base">
@@ -64,7 +64,7 @@ const MyGroups = () => {
                 <th className="border px-2 sm:px-4 py-2 text-left ">Group Name</th>
                 <th className="border px-2 sm:px-4 py-2 text-left">Category</th>
                 <th className="border px-2 sm:px-4 py-2 text-left">Description</th>
-                <th className="border px-2  sm:px-4 py-2 text-center">Actions</th>
+                <th className="border px-2  sm:px-4 py-2 text-center ">Actions</th>
               </tr>
             </thead>
             <tbody>
