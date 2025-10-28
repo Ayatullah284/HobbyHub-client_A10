@@ -36,7 +36,7 @@ const MyGroups = () => {
       if (res.ok) {
         await Swal.fire({
           title: "Deleted!",
-          text: "Group deleted successfully!",
+          text: "Group deleted successfully! ",
           icon: "success",
           confirmButtonText: "ঠিক আছে"
         });
