@@ -69,20 +69,26 @@ const MyGroups = () => {
             </thead>
             <tbody>
               {groups.map((g) => (
-                <tr key={g._id} className="hover:bg-gray-50">
+                <tr key={g._id} className="hover:bg-gray-50 ">
                   <td className="border px-2 sm:px-4 py-2">{g.groupName}</td>
                   <td className="border px-2 sm:px-4 py-2">{g.category}</td>
                   <td className="border px-2 sm:px-4 py-2">{g.description}</td>
-                  <td className="border px-2 sm:px-4 py-2 flex flex-col sm:flex-row justify-center items-center gap-2">
+                  <td className="border px-2 sm:px-4 py-2 flex flex-col sm:flex-row justify-center items-center gap-2 ">
                     <button
-                      className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 w-full sm:w-auto"
+                      className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 w-full sm:w-auto cursor-pointer"
+                      onClick={() => navigate(`/groupDetails/${g._id}`)}
+                    >
+                      Info
+                    </button>
+                    <button
+                      className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 w-full sm:w-auto cursor-pointer"
                       onClick={() => navigate(`/updateGroup/${g._id}`)}
                     >
                       Update
                     </button>
 
                     <button
-                      className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 w-full sm:w-auto"
+                      className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 w-full sm:w-auto cursor-pointer"
                       onClick={() => handleDelete(g._id)}
                     >
                       Delete

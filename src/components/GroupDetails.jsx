@@ -75,7 +75,7 @@ const GroupDetails = () => {
           Join Group
         </button>
       ) : (
-        <p className="text-red-500 font-semibold">Group is inactive</p>
+        <p className="text-red-500 font-semibold">Group is no longer active</p>
       )}
       
     </div>
