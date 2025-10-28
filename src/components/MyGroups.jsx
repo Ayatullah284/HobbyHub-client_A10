@@ -64,7 +64,7 @@ const MyGroups = () => {
                 <th className="border px-2 sm:px-4 py-2 text-left ">Group Name</th>
                 <th className="border px-2 sm:px-4 py-2 text-left">Category</th>
                 <th className="border px-2 sm:px-4 py-2 text-left">Description</th>
-                <th className="border px-2 sm:px-4 py-2 text-center">Actions</th>
+                <th className="border px-2  sm:px-4 py-2 text-center">Actions</th>
               </tr>
             </thead>
             <tbody>
