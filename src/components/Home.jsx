@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
+import { Slide } from 'react-awesome-reveal'
 
 export default function Home() {
   const [featuredGroups, setFeaturedGroups] = useState([])
@@ -30,7 +31,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="space-y-12">
+    <Slide className="space-y-12">
 
       {/* Banner / Slider */}
       <section className="w-full">
@@ -145,6 +146,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div>
+    </Slide>
   )
 }

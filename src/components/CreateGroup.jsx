@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Slide } from "react-awesome-reveal";
 
 const CreateGroup = () => {
   const { user, token } = useContext(AuthContext);
@@ -56,7 +57,7 @@ const CreateGroup = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto my-10 p-4 sm:p-6 bg-white rounded-xl shadow-md">
+    <Slide className="max-w-3xl mx-auto my-10 p-4 sm:p-6 bg-white rounded-xl shadow-md">
       <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center sm:text-left">
         Create a New Hobby Group
       </h2>
@@ -179,7 +180,7 @@ const CreateGroup = () => {
           Submit
         </button>
       </form>
-    </div>
+    </Slide>
   );
 };
 

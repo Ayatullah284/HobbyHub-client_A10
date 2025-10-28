@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthContext"; 
 import { toast } from "react-hot-toast";
+import { Slide } from "react-awesome-reveal";
 
 const GroupDetails = () => {
   const { id } = useParams();
@@ -40,7 +41,7 @@ const GroupDetails = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto my-10 p-4 sm:p-6 bg-white shadow-lg rounded-xl">
+    <Slide className="max-w-3xl mx-auto my-10 p-4 sm:p-6 bg-white shadow-lg rounded-xl">
       
       {group.imageURL && (
         <img
@@ -78,7 +79,7 @@ const GroupDetails = () => {
         <p className="text-red-500 font-semibold">Group is no longer active</p>
       )}
       
-    </div>
+    </Slide>
   );
 };
 

@@ -6,6 +6,8 @@ import {app} from '../../firebase/firebase.config'
 import { useLocation } from "react-router";
 import { AuthContext } from "../../Auth/AuthContext";
 import Swal from "sweetalert2";
+import { Slide } from "react-awesome-reveal";
+
 
 const Register = () => {
   const auth = getAuth(app);
@@ -109,7 +111,7 @@ const Register = () => {
   }
 
   return (
-    <div className="card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl my-10">
+    <Slide className="card bg-base-100 max-w-sm mx-auto shrink-0 shadow-2xl my-10">
       <div className="card-body">
         <h1 className="text-3xl font-bold text-center">Register Now</h1>
         <form onSubmit={handleRegister}>
@@ -152,7 +154,7 @@ const Register = () => {
           Already have an account? <Link to="/login" className="underline text-blue-500">Login</Link>
         </p>
       </div>
-    </div>
+    </Slide>
   );
 };
 

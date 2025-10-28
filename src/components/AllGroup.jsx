@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../Auth/AuthContext";
+import { Slide } from "react-awesome-reveal";
+
 
 const AllGroups = () => {
   const [groups, setGroups] = useState([]);
@@ -16,7 +18,7 @@ const AllGroups = () => {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10 ">
+    <Slide className="max-w-6xl mx-auto px-4 py-10 ">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
         All Hobby Groups
       </h2>
@@ -51,7 +53,7 @@ const AllGroups = () => {
           ))}
         </div>
       )}
-    </div>
+    </Slide>
   );
 };
 

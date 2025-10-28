@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../Auth/AuthContext";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Slide } from "react-awesome-reveal";
 
 const MyGroups = () => {
   const { user } = useContext(AuthContext);
@@ -51,7 +52,7 @@ const MyGroups = () => {
   };
 
   return (
-    <div className="p-4 sm:p-6 w-full max-w-5xl mx-auto">
+    <Slide className="p-4 sm:p-6 w-full max-w-5xl mx-auto">
       <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-center sm:text-left">My Groups</h2>
 
       {groups.length === 0 ? (
@@ -100,7 +101,7 @@ const MyGroups = () => {
           </table>
         </div>
       )}
-    </div>
+    </Slide>
   );
 };
 

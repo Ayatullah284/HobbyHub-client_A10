@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Slide } from "react-awesome-reveal";
 import { useParams, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -48,7 +49,7 @@ const UpdateGroup = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-4 sm:p-6 md:p-8">
+    <Slide className="max-w-xl mx-auto p-4 sm:p-6 md:p-8">
       <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center">Update Group</h2>
 
       <form onSubmit={handleUpdate} className="space-y-4">
@@ -119,7 +120,7 @@ const UpdateGroup = () => {
           Update Group
         </button>
       </form>
-    </div>
+    </Slide>
   );
 };
 
